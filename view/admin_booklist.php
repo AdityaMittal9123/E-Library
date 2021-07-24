@@ -28,7 +28,7 @@
       			<div class="col s12 m6 l4">
               <div class="card z-depth=0 hoverable"style="height:520px;">
       					<div class="card-content">
-      						<div class="card-image"><img src="<?php echo htmlspecialchars($data->cover_image); ?>"></div>
+      						<div class="card-image"><img src="resources\images/<?= $data->cover_image;?>"></div>
       						<h6><?php echo htmlspecialchars($data->name); ?></h6>
       						 <div><?php echo htmlspecialchars($data->author_name); ?></div>
                    <div>Total books:-<?php echo htmlspecialchars($data->total_count); ?></div>
