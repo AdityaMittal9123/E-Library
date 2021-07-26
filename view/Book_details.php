@@ -29,7 +29,7 @@
           <div class="col m12 l5">
             <div class="card z-depth=0"> 
               <div class="card-content center" >
-                <div class="card-image" style="height:350px;width:250px"><img src="<?php echo htmlspecialchars($Book_detail->cover_image); ?>"></div>
+                <div class="card-image" style="height:350px;width:250px"><img src="resources\images/<?= $Book_detail->cover_image;?>"></div>
                 <a class="waves-effect waves-light btn center" href="<?php echo ($Book_detail->pdf); ?>" target="_blank">Read Book</a>
 
               </div>

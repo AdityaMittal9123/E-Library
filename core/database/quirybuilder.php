@@ -30,6 +30,13 @@ class QueryBuilder {
 		 //$select_stmt->execute();
          return $select_stmt;
      }
+	 public function selectjoin($table,$tablel,$cname,$cnamel, $column, $conditional)
+     {
+         $column = implode(',', $column);
+         $conditional = implode(',', $conditional);
+         $stmt = $this->pdo->prepare("SELECT * FROM ${table} INNER JOIN $tablel ON (${cname}) = (${cnamel}) WHERE (${column}) = (${conditional})");
+         return $stmt;
+     }
 
 	 public function update($table, $upda, $bid, $target)
      {
@@ -44,13 +51,12 @@ class QueryBuilder {
             
             
       }
-	public function deleteAll($table, $name, $value) {
-		//$name = implode(',', $name);
-         $value = implode(',', $value);
-		$stmt = $this->pdo->prepare("DELETE FROM ${table} WHERE ${name} = ${value}");
-		$stmt->execute();
-		
-	}
+	  public function DeleteAll($table,$bid,$target){
+        $t = implode(',',$bid);
+          $tt = implode(',',$target);
+         $sql =  $this->pdo->prepare("DELETE FROM $table WHERE (${t}) = (${tt})");
+         $sql->execute();
+      }
 	public function insert($table, $column, $values) {
 		$column = implode(',', $column);
     $values = implode(',', $values);
