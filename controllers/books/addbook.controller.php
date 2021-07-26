@@ -70,7 +70,7 @@ if (isset($_POST['submit'])) {
 
 	if (empty($nameError)  && empty($authorError) && empty($countError)) {
 		//SQL query to insert the data
-        App::get('books')->addBook($name,$auth_name,$description,$image,$pdf,$total_count);
+        App::get('books')->addBook($name,$auth_name,$description,$fileNameNew,$pdf,$total_count);
 		// require './view/addbook.php';
 		?>
 		if($add->execute()) {
