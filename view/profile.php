@@ -14,17 +14,17 @@
 		</div>
 		<div class="grey-text">
 		<details>
-        <summary><?php echo htmlspecialchars($hasbook->action); ?></summary>
-        <p class="black-text"><?php echo htmlspecialchars($userbook->name);?></p>
-         </details>
-     	<details>
-        <summary>Returned</summary>
-        <p class="black-text"><?php echo htmlspecialchars($user->email);?></p>
-         </details>
-        <details>
+        <summary>Reading</summary>
+        <p class="black-text"><?php echo htmlspecialchars($read_data->name);?></p>
+    </details>
+    <details>
         <summary>Wishlist</summary>
-        <p class="black-text"><?php echo htmlspecialchars($user->email);?></p>
-    	</details>
+        <p class="black-text"><?php echo htmlspecialchars($w_data->name);?></p>
+    </details>
+    <details>
+        <summary>Returned</summary>
+        <p class="black-text"><?php echo htmlspecialchars($return_data->name);?></p>
+    </details>
 		</div>
 	</div>
 		<!-- <a class="modal-trigger" data-target="terms"><i class="small material-icons red-text">delete_account</i></a> -->

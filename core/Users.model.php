@@ -91,5 +91,22 @@ class Users extends QueryBuilder {
         return $bdata;
 
     }
+	public function issueAction($u_id,$action){
+        $column=array('u_id', 'action');
+        $values=[
+            ':u_id'=>"'".$u_id."'",
+			':action'=>"'".$action."'"];
+        $select_stmt = parent::select('has_book',$column, $values);
+		// $select_stmt->execute();
+        // $bdata=$select_stmt->fetch(PDO::FETCH_OBJ);
+        return $select_stmt;
+
+    }
+	public function selectjoinon($u_id,$issue){
+		$column=array('u_id','action');
+		$condition = [':u_id'=>"'".$u_id."'",
+		':action'=>"'".$issue."'"];
+		return parent::selectjoin('has_book','books','books.b_id','has_book.b_id',$column,$condition);
+	  }
 }
 ?>

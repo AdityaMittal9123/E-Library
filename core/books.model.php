@@ -54,6 +54,13 @@ class Books extends QueryBuilder {
 
         
     }
+    public function Deleteissuedbook($u_id,$action)
+    {
+      $column=array('u_id','action');
+      $target = [':u_id'=>"'".$u_id."'",
+      ':action'=>"'".$action."'"];
+      parent::DeleteAll('has_book',$column,$target);
+    }
     public function UpdateBook($name,$author_name,$cover_image,$description,$pdf,$totalcount,$b_id){
         $values=[
          ':name'=>"'".$name."'",
@@ -77,6 +84,25 @@ class Books extends QueryBuilder {
        return parent::update($this->table,$upda,'b_id',$target);
       
       }
+      public function CountUp($cont,$b_id){
+        $values=[
+         ':total_count'=>"'".$cont."'",
+      ];
+      $target = [
+        ':b_id'=>"'".$b_id."'"
+      ];
+      $column = ['total_count'];
+       $i = 0;
+      $upda = [];
+    $queryArray = array_keys($values);
+      while (isset($column[$i])) {
+        $upda += [$column[$i] => $queryArray[$i]];
+        $i++;
+    }
+       return parent::update($this->table,$upda,'b_id',$target);
+      
+      }
+  
 
 }
 
